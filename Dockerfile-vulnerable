@@ -1,0 +1,18 @@
+FROM node:slim
+
+# Add sources.list to enable snapshot
+ADD sources.list /etc/apt/sources.list
+
+# Make sure the latest versions of all packages are installed
+RUN apt-get update && apt-get dist-upgrade -y
+
+# Downgrade apt to 1.4.8
+# This version is vulnerable to CVE-2019-3462
+# See https://lists.debian.org/debian-security-announce/2019/msg00010.html
+RUN apt-get install --allow-downgrades -y apt=1.4.8
+
+COPY app.js .
+COPY package.json .
+RUN npm install
+EXPOSE  8080
+CMD node app.js
