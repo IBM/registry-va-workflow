@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-world
+  namespace: default
 spec:
   selector:
     matchLabels:
@@ -23,6 +24,7 @@ metadata:
   labels:
     app: hello-world
   name: hello-world
+  namespace: default
 spec:
   ports:
   - port: 8080
