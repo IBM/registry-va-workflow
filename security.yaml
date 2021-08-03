@@ -1,4 +1,4 @@
-apiVersion: securityenforcement.admission.cloud.ibm.com/v1beta1
+apiVersion: portieris.cloud.ibm.com/v1
 kind: ClusterImagePolicy
 metadata:
   name: no-vulnerable-images
@@ -6,5 +6,6 @@ spec:
   repositories:
     - name: us.icr.io/<my_namespace>/*
       policy:
-        va:
-          enabled: true
+        vulnerability:
+          ICCRVA:
+            enabled: true
