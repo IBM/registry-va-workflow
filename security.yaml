@@ -3,8 +3,8 @@ kind: ClusterImagePolicy
 metadata:
   name: no-vulnerable-images
 spec:
-   repositories:
-    - name: us.icr.io/<my_namespace>/*
+  repositories:
+   - name: us.icr.io/<my_namespace>/*
       policy:
         vulnerability:
           ICCRVA:
