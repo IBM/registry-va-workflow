@@ -4,7 +4,7 @@ metadata:
   name: no-vulnerable-images
 spec:
   repositories:
-   - name: us.icr.io/<my_namespace>/*
+    - name: us.icr.io/<my_namespace>/*
       policy:
         vulnerability:
           ICCRVA:
